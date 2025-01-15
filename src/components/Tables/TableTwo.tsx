@@ -1,106 +1,82 @@
+import { BRAND } from "@/types/brand";
 import Image from "next/image";
-import { Product } from "@/types/product";
+import Link from 'next/link';
 
-const productData: Product[] = [
+
+const brandData: BRAND[] = [
   {
-    image: "/images/product/product-01.png",
-    name: "Apple Watch Series 7",
-    category: "Electronics",
-    price: 296,
-    sold: 22,
-    profit: 45,
+    logo: "/images/brand/brand-01.svg",
+    name: "Google",
+    visitors: 3.5,
+    revenues: "5,768",
+    sales: 590,
+    conversion: 4.8,
   },
   {
-    image: "/images/product/product-02.png",
-    name: "Macbook Pro M1",
-    category: "Electronics",
-    price: 546,
-    sold: 12,
-    profit: 125,
+    logo: "/images/brand/brand-02.svg",
+    name: "Twitter",
+    visitors: 2.2,
+    revenues: "4,635",
+    sales: 467,
+    conversion: 4.3,
   },
   {
-    image: "/images/product/product-03.png",
-    name: "Dell Inspiron 15",
-    category: "Electronics",
-    price: 443,
-    sold: 64,
-    profit: 247,
+    logo: "/images/brand/brand-03.svg",
+    name: "Github",
+    visitors: 2.1,
+    revenues: "4,290",
+    sales: 420,
+    conversion: 3.7,
   },
   {
-    image: "/images/product/product-04.png",
-    name: "HP Probook 450",
-    category: "Electronics",
-    price: 499,
-    sold: 72,
-    profit: 103,
+    logo: "/images/brand/brand-04.svg",
+    name: "Vimeo",
+    visitors: 1.5,
+    revenues: "3,580",
+    sales: 389,
+    conversion: 2.5,
+  },
+  {
+    logo: "/images/brand/brand-05.svg",
+    name: "Facebook",
+    visitors: 3.5,
+    revenues: "6,768",
+    sales: 390,
+    conversion: 4.2,
   },
 ];
 
 const TableTwo = () => {
   return (
-    <div className="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
-      <div className="px-4 py-6 md:px-6 xl:px-7.5">
-        <h4 className="text-xl font-semibold text-black dark:text-white">
-          Top Products
-        </h4>
-      </div>
+    <div className="rounded-sm border border-stroke bg-white px-5 pb-2.0 pt-6 shadow-default dark:border-strokedark dark:bg-boxdark sm:px-7.5 xl:pb-1 w-80 justify-center">
+      <h4 className="mb-6 text-xl font-semibold text-black dark:text-white text-center">
+        Top Influencers
+      </h4>
 
-      <div className="grid grid-cols-6 border-t border-stroke px-4 py-4.5 dark:border-strokedark sm:grid-cols-8 md:px-6 2xl:px-7.5">
-        <div className="col-span-3 flex items-center">
-          <p className="font-medium">Product Name</p>
-        </div>
-        <div className="col-span-2 hidden items-center sm:flex">
-          <p className="font-medium">Category</p>
-        </div>
-        <div className="col-span-1 flex items-center">
-          <p className="font-medium">Price</p>
-        </div>
-        <div className="col-span-1 flex items-center">
-          <p className="font-medium">Sold</p>
-        </div>
-        <div className="col-span-1 flex items-center">
-          <p className="font-medium">Profit</p>
-        </div>
-      </div>
+      <div className="flex flex-col">
+        <div className="grid rounded-sm bg-gray-2 dark:bg-meta-4 "></div>
 
-      {productData.map((product, key) => (
-        <div
-          className="grid grid-cols-6 border-t border-stroke px-4 py-4.5 dark:border-strokedark sm:grid-cols-8 md:px-6 2xl:px-7.5"
-          key={key}
-        >
-          <div className="col-span-3 flex items-center">
-            <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
-              <div className="h-12.5 w-15 rounded-md">
-                <Image
-                  src={product.image}
-                  width={60}
-                  height={50}
-                  alt="Product"
-                />
+        {brandData.map((brand, key) => (
+          <Link href="/tables" key={key}>
+            <div
+              className={` sm:grid-cols-5 ${
+                key === brandData.length - 1
+                  ? ""
+                  : "border-b border-stroke dark:border-strokedark"
+              }`}
+            >
+              <div className="flex items-center justify-center gap-3 p-2.5 xl:p-5">
+                <div className="flex-shrink-0">
+                  <Image src={brand.logo} alt="Brand" width={48} height={48} />
+                </div>
+                <p className="hidden text-black dark:text-white sm:block text-center">
+                  {brand.name}
+                </p>
               </div>
-              <p className="text-sm text-black dark:text-white">
-                {product.name}
-              </p>
             </div>
-          </div>
-          <div className="col-span-2 hidden items-center sm:flex">
-            <p className="text-sm text-black dark:text-white">
-              {product.category}
-            </p>
-          </div>
-          <div className="col-span-1 flex items-center">
-            <p className="text-sm text-black dark:text-white">
-              ${product.price}
-            </p>
-          </div>
-          <div className="col-span-1 flex items-center">
-            <p className="text-sm text-black dark:text-white">{product.sold}</p>
-          </div>
-          <div className="col-span-1 flex items-center">
-            <p className="text-sm text-meta-3">${product.profit}</p>
-          </div>
-        </div>
-      ))}
+          </Link>
+        ))}
+      </div>
     </div>
   );
 };
