@@ -6,7 +6,7 @@ import Link from 'next/link';
 const brandData: BRAND[] = [
   {
     logo: "/images/brand/brand-01.svg",
-    name: "Google",
+    name: "Sukhvir",
     visitors: 3.5,
     revenues: "5,768",
     sales: 590,
@@ -14,7 +14,7 @@ const brandData: BRAND[] = [
   },
   {
     logo: "/images/brand/brand-02.svg",
-    name: "Twitter",
+    name: "Shivam",
     visitors: 2.2,
     revenues: "4,635",
     sales: 467,
@@ -22,7 +22,7 @@ const brandData: BRAND[] = [
   },
   {
     logo: "/images/brand/brand-03.svg",
-    name: "Github",
+    name: "Mayank",
     visitors: 2.1,
     revenues: "4,290",
     sales: 420,
@@ -30,7 +30,7 @@ const brandData: BRAND[] = [
   },
   {
     logo: "/images/brand/brand-04.svg",
-    name: "Vimeo",
+    name: "Shikhar",
     visitors: 1.5,
     revenues: "3,580",
     sales: 389,
@@ -38,7 +38,7 @@ const brandData: BRAND[] = [
   },
   {
     logo: "/images/brand/brand-05.svg",
-    name: "Facebook",
+    name: "Nandu",
     visitors: 3.5,
     revenues: "6,768",
     sales: 390,
@@ -67,7 +67,7 @@ const TableTwo = () => {
             >
               <div className="flex items-center justify-center gap-3 p-2.5 xl:p-5">
                 <div className="flex-shrink-0">
-                  <Image src={brand.logo} alt="Brand" width={48} height={48} />
+
                 </div>
                 <p className="hidden text-black dark:text-white sm:block text-center">
                   {brand.name}
